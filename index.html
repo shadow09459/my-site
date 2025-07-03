@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Bestie ð</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="amina" id="typewriter">Hi Sweety ð</div>
+
+    <div>
+        <img class="image" src="flowers-petals-bowl-table.jpg" alt="Flower Image">
+        <img class="image" src="pexels-arts-1187079.jpg" alt="Flower Image">
+        <img class="image" src="top-view-bowl-with-flowers-petals.jpg" alt="Flower Image">
+        <img class="image" src="pexels-mariannaole-757889.jpg" alt="Flower Image">
+        <img class="image" src="pexels-pixabay-56866.jpg" alt="Flower Image">
+        <img class="image" src="high-angle-colorful-spring-flowers.jpg" alt="Flower Image">
+    </div>
+
+    <div class="quotes" id="quoteBox">Loading sweet quote...</div>
+
+    <button onclick="showLove()">Send Love ð</button>
+    <button onclick="toggleMusic()">Play Music ð¶</button>
+
+    <div class="love-message" id="loveMsg"></div>
+
+    <audio id="bgMusic" loop>
+        <source src="Hawaon Se Tera Pata Puchta Hun (Slowed _ Reverb) Baarish _ Half Girlfriend Songs(MP3_160K).mp3" type="audio/mpeg">
+        <!-- Use your own MP3 file -->
+    </audio>
+
+    <script>
+        const quotes = [
+            "You're my sunshine on a cloudy day âï¸",
+            "Best friends make the good times better ð",
+            "You make life blossom ð¸",
+            "Forever my favorite person ð«",
+            "You're sweeter than any flower ð·",
+            "With you, every moment is magical â¨"
+        ];
+
+        const compliments = [
+            "You glow brighter than the stars â¨",
+            "You're the sparkle in my world ð",
+            "You're a walking sunshine âï¸",
+            "You make everything better ð",
+            "You're one in a million ð¹"
+        ];
+
+        const quoteBox = document.getElementById("quoteBox");
+        const loveMsg = document.getElementById("loveMsg");
+        const music = document.getElementById("bgMusic");
+
+        function showRandomQuote() {
+            const random = Math.floor(Math.random() * quotes.length);
+            quoteBox.innerText = quotes[random];
+        }
+
+        function showLove() {
+            const msg = compliments[Math.floor(Math.random() * compliments.length)];
+            loveMsg.innerText = msg;
+            createHearts();
+        }
+
+        function toggleMusic() {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        }
+
+        function createHearts() {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.animationDuration = 4 + Math.random() * 3 + 's';
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 7000);
+        }
+
+        // Show quote every 4s
+        showRandomQuote();
+        setInterval(showRandomQuote, 4000);
+
+        // Typewriter effect
+        const text = "Hi Bestie ð You're So Special!";
+        let i = 0;
+        function typeEffect() {
+            if (i < text.length) {
+                document.getElementById("typewriter").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeEffect, 100);
+            }
+        }
+        document.getElementById("typewriter").innerHTML = "";
+        typeEffect();
+    </script>
+</body>
+</html>
